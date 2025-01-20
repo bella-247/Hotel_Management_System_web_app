@@ -1,0 +1,60 @@
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  width: 100%;
+}
+header nav {
+  background-color: #222;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #444;
+  padding: 1rem 2rem;
+}
+header nav .brand-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+header nav .brand-container .brand {
+  font-family: "Old English Text MT", sans-serif;
+  font-size: 1.5rem;
+  line-height: 0.8;
+}
+header nav ul.nav-links-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 0.5rem;
+}
+header nav ul.nav-links-container li.nav-links {
+  padding: 0.25rem;
+  position: relative;
+}
+header nav ul.nav-links-container li.nav-links a::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  border-radius: 1rem;
+  background-color: #fff;
+  transition: width 0.25s linear;
+}
+header nav ul.nav-links-container li.nav-links a:hover:not(.active) {
+  color: #ccc;
+}
+header nav ul.nav-links-container li.nav-links a:hover:not(.active)::before {
+  width: 35%;
+  background: #ccc;
+}
+header nav ul.nav-links-container li.nav-links a.active::before {
+  width: 100%;
+}/*# sourceMappingURL=NavBar.css.map */

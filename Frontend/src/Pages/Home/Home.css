@@ -1,1 +1,169 @@
-/*# sourceMappingURL=Home.css.map */
+main section {
+  min-height: 100vh;
+  padding: 1rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+}
+main section h2 {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+  text-align: center;
+}
+main section#hero {
+  background-image: url("../../assets/wallpapers/hero-section-wallpaper.jpg"), linear-gradient(180deg, rgba(0, 0, 0, 0.4), #000);
+  min-height: 100vh;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: top;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+main section#hero h1 {
+  text-align: center;
+  font-size: clamp(2rem, 10vw, 5rem);
+}
+main section#hero h1 span {
+  color: #009fff;
+}
+main section#hero .hero-phrase {
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+}
+main section#hero .explore-btn {
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: #009fff;
+  transition: background-color 150ms linear, box-shadow 150ms linear;
+  margin: 1rem auto;
+  font-size: 1.1rem;
+  background-color: transparent;
+  border: 2px solid #009fff;
+  padding: 0.75rem 1rem;
+}
+main section#hero .explore-btn:hover {
+  background-color: #00afff;
+  box-shadow: 0px 0px 15px #009fff;
+}
+main section#hero .explore-btn:active {
+  background-color: #008fff;
+}
+main section#services {
+  background-image: url(../../assets/Foods/food_1.png), linear-gradient(180deg, rgba(0, 0, 0, 0.6), #000);
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+main section#services .services-preview {
+  padding: 2rem 0;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+main section#services .services-preview .service {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 50vw, 2rem);
+}
+main section#services .services-preview .service .service-text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-basis: calc(50% - 2rem);
+  padding: 1.5rem 0.5rem;
+  border-radius: 1rem;
+  gap: 1rem;
+}
+main section#services .services-preview .service .service-text-content h3 {
+  font-size: 2rem;
+}
+main section#services .services-preview .service .service-text-content .services-btn {
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 0.5rem;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: #009fff;
+  transition: background-color 150ms linear, box-shadow 150ms linear;
+  margin: 1rem auto;
+  width: -moz-max-content;
+  width: max-content;
+  margin-inline: 0rem;
+  margin: 0.5rem 0;
+}
+main section#services .services-preview .service .service-text-content .services-btn:hover {
+  background-color: #00afff;
+  box-shadow: 0px 0px 15px #009fff;
+}
+main section#services .services-preview .service .service-text-content .services-btn:active {
+  background-color: #008fff;
+}
+main section#services .services-preview .service .service-image-content {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  flex-basis: calc(50% - 2rem);
+}
+main section#services .services-preview .service .service-image-content img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  transition: scale 250ms linear;
+}
+main section#services .services-preview .service .service-image-content:hover img {
+  scale: 1.1;
+}
+main section#services .services-preview .service:nth-of-type(even) {
+  flex-direction: row-reverse;
+}
+@media screen and (max-width: 550px) {
+  main section#services .services-preview .service {
+    width: 90%;
+    flex-direction: column-reverse;
+  }
+  main section#services .services-preview .service:nth-of-type(even) {
+    flex-direction: column-reverse;
+  }
+  main section#services .services-preview .service .service-image-content {
+    width: 100%;
+  }
+}
+main section#review {
+  background-image: url("../../assets/wallpapers/review.jpg"), linear-gradient(180deg, rgba(0, 0, 0, 0.4), #000);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+}
+main section#review .testimonials-preview {
+  border: 2px solid #0088ff;
+  border-radius: 0.5rem;
+  padding: 1rem clamp(1rem, 5%, 3rem);
+  width: clamp(250px, 100%, 600px);
+  margin: 0 auto;
+}
+main section#review .testimonials-preview h3 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 2rem 1rem;
+}
+main section#review .testimonials-preview .testimonials-container {
+  display: flex;
+}/*# sourceMappingURL=Home.css.map */

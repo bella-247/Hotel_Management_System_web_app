@@ -1,44 +1,71 @@
-header{
+@import "../../Global variables/variables.scss";
+
+$navbar-bg-color: #222;
+$navbar-light-bg-color: #5556;
+
+
+header {
     position: sticky;
     top: 0;
-    left: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
     width: 100%;
-    nav{
-        background-color: #222;
+    user-select: none;
+    nav {
+        position: relate;
+        background-color: $navbar-bg-color;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border-bottom: 2px solid #444;
-        padding: 1rem 2rem;
-        .brand-container{
+        backdrop-filter: blur(5px);
+        transition: background-color 250ms linear, translate 250ms linear,
+            margin 250ms linear;
+        .brand-container {
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 0.5rem 1rem;
             .brand {
                 font-family: "Old English Text MT", sans-serif;
                 font-size: 1.5rem;
                 line-height: 0.8;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+                .logo-container{
+                    img{
+                        aspect-ratio: 1/1;
+                        width: 100%;
+                        width: clamp(40px, 5vw, 40px);
+                        object-fit: cover;
+                        object-position: center;
+                        border-radius: 50%;
+                    }
+                }
             }
         }
-        ul.nav-links-container{
+        ul.nav-links-container {
             display: flex;
             justify-content: space-evenly;
             align-items: center;
-            gap: 0.5rem;
-            li.nav-links{
-                // background: red;
+            gap: 1rem;
+            padding: 0.5rem 1rem;
+            li.nav-links {
                 padding: 0.25rem;
                 position: relative;
-                a{
-                    &::before{
+                a {
+                    display: inline-block;
+                    padding: 0.5rem 0;
+                    font-weight: 600;
+                    font-family: sans-serif;
+                    &::before {
                         content: "";
                         position: absolute;
-                        bottom: -2px;
+                        bottom: 2px;
                         left: 0;
                         width: 0%;
                         height: 2px;
@@ -46,18 +73,144 @@ header{
                         background-color: #fff;
                         transition: width 0.25s linear;
                     }
-                    &:hover:not(.active){
+                    &:hover:not(.active) {
                         color: #ccc;
-                        &::before{
+                        &::before {
                             width: 35%;
                             background: #ccc;
                         }
                     }
-                    &.active{
-                        &::before{
+                    &.active {
+                        font-weight: 700;
+                        &::before {
                             width: 100%;
                         }
                     }
+                }
+            }
+        }
+        .drop-down-menu-container {
+            display: none;
+            .menu {
+                position: relative;
+                width: 60px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 0.5rem;
+                padding: 1rem;
+                cursor: pointer;
+                .bars {
+                    width: 30px;
+                    height: 0.25rem;
+                    background-color: white;
+                    border-radius: 1rem;
+                    transition: rotate 250ms linear,
+                        background-color 150ms linear;
+                }
+                &.active {
+                    .bars {
+                        position: absolute;
+                    }
+                    .bars:first-child {
+                        rotate: 45deg;
+                    }
+                    .bars:last-child {
+                        rotate: -45deg;
+                    }
+                }
+            }
+            .drop-down-links-container {
+                position: absolute;
+                top: calc(100% + 0rem);
+                right: 0;
+                max-height: 0px;
+                overflow: hidden;
+                background-color: $navbar-bg-color;
+                display: flex;
+                flex-direction: column;
+                border-bottom-right-radius: 0.25rem;
+                border-bottom-left-radius: 0.25rem;
+                transition: max-height 0.25s ease-in-out;
+                li {
+                    isolation: isolate;
+                }
+                a {
+                    position: relative;
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    transition: background 150ms linear, color 150ms linear;
+                    padding: 0.5rem 1rem 0.5rem 0.5rem;
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        // bottom: -2px;
+                        left: 0;
+                        width: 0%;
+                        height: 100%;
+                        background-color: black;
+                        z-index: -1;
+                    }
+                    .right-arrow {
+                        margin-right: 0.25rem;
+                        transition: color 150ms linear;
+                    }
+                    &:hover {
+                        background: #fff1;
+                        color: #ccc;
+                    }
+                    &.active {
+                        color: white;
+                        font-weight: 700;
+                        &::before {
+                            width: 100%;
+                            transition: width 150ms ease-in;
+                        }
+                    }
+                }
+                &.drop {
+                    max-height: 1000px;
+                }
+            }
+            &:hover {
+                .menu .bars {
+                    background-color: #ccc;
+                }
+
+                .drop-down-links-container {
+                    max-height: 1000px;
+                }
+            }
+        }
+    }
+
+    &.scrolled-down {
+        nav {
+            translate: 0 calc(-100% - 10px);
+        }
+    }
+    &.not_at_the_top {
+        nav {
+            margin: 10px;
+            background-color: $navbar-light-bg-color;
+            .drop-down-links-container {
+                background-color: $navbar-light-bg-color;
+                a{
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    @media screen and (max-width: #{$breakpoint-tablet}) {
+        & {
+            nav {
+                ul.nav-links-container {
+                    display: none;
+                }
+                .drop-down-menu-container {
+                    display: block;
                 }
             }
         }

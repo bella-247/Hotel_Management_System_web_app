@@ -1,46 +1,72 @@
 header {
   position: sticky;
   top: 0;
-  left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
   width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 header nav {
+  position: relate;
   background-color: #222;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 2px solid #444;
-  padding: 1rem 2rem;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  transition: background-color 250ms linear, translate 250ms linear, margin 250ms linear;
 }
 header nav .brand-container {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0.5rem 1rem;
 }
 header nav .brand-container .brand {
   font-family: "Old English Text MT", sans-serif;
   font-size: 1.5rem;
   line-height: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+header nav .brand-container .brand .logo-container img {
+  aspect-ratio: 1/1;
+  width: 100%;
+  width: clamp(40px, 5vw, 40px);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 50%;
 }
 header nav ul.nav-links-container {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  gap: 0.5rem;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
 }
 header nav ul.nav-links-container li.nav-links {
   padding: 0.25rem;
   position: relative;
 }
+header nav ul.nav-links-container li.nav-links a {
+  display: inline-block;
+  padding: 0.5rem 0;
+  font-weight: 600;
+  font-family: sans-serif;
+}
 header nav ul.nav-links-container li.nav-links a::before {
   content: "";
   position: absolute;
-  bottom: -2px;
+  bottom: 2px;
   left: 0;
   width: 0%;
   height: 2px;
@@ -55,6 +81,118 @@ header nav ul.nav-links-container li.nav-links a:hover:not(.active)::before {
   width: 35%;
   background: #ccc;
 }
+header nav ul.nav-links-container li.nav-links a.active {
+  font-weight: 700;
+}
 header nav ul.nav-links-container li.nav-links a.active::before {
   width: 100%;
+}
+header nav .drop-down-menu-container {
+  display: none;
+}
+header nav .drop-down-menu-container .menu {
+  position: relative;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+header nav .drop-down-menu-container .menu .bars {
+  width: 30px;
+  height: 0.25rem;
+  background-color: white;
+  border-radius: 1rem;
+  transition: rotate 250ms linear, background-color 150ms linear;
+}
+header nav .drop-down-menu-container .menu.active .bars {
+  position: absolute;
+}
+header nav .drop-down-menu-container .menu.active .bars:first-child {
+  rotate: 45deg;
+}
+header nav .drop-down-menu-container .menu.active .bars:last-child {
+  rotate: -45deg;
+}
+header nav .drop-down-menu-container .drop-down-links-container {
+  position: absolute;
+  top: calc(100% + 0rem);
+  right: 0;
+  max-height: 0px;
+  overflow: hidden;
+  background-color: #222;
+  display: flex;
+  flex-direction: column;
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  transition: max-height 0.25s ease-in-out;
+}
+header nav .drop-down-menu-container .drop-down-links-container li {
+  isolation: isolate;
+}
+header nav .drop-down-menu-container .drop-down-links-container a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  transition: background 150ms linear, color 150ms linear;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+}
+header nav .drop-down-menu-container .drop-down-links-container a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: black;
+  z-index: -1;
+}
+header nav .drop-down-menu-container .drop-down-links-container a .right-arrow {
+  margin-right: 0.25rem;
+  transition: color 150ms linear;
+}
+header nav .drop-down-menu-container .drop-down-links-container a:hover {
+  background: rgba(255, 255, 255, 0.0666666667);
+  color: #ccc;
+}
+header nav .drop-down-menu-container .drop-down-links-container a.active {
+  color: white;
+  font-weight: 700;
+}
+header nav .drop-down-menu-container .drop-down-links-container a.active::before {
+  width: 100%;
+  transition: width 150ms ease-in;
+}
+header nav .drop-down-menu-container .drop-down-links-container.drop {
+  max-height: 1000px;
+}
+header nav .drop-down-menu-container:hover .menu .bars {
+  background-color: #ccc;
+}
+header nav .drop-down-menu-container:hover .drop-down-links-container {
+  max-height: 1000px;
+}
+header.scrolled-down nav {
+  translate: 0 calc(-100% - 10px);
+}
+header.not_at_the_top nav {
+  margin: 10px;
+  background-color: rgba(85, 85, 85, 0.4);
+}
+header.not_at_the_top nav .drop-down-links-container {
+  background-color: rgba(85, 85, 85, 0.4);
+}
+header.not_at_the_top nav .drop-down-links-container a {
+  font-weight: 600;
+}
+@media screen and (max-width: 700px) {
+  header nav ul.nav-links-container {
+    display: none;
+  }
+  header nav .drop-down-menu-container {
+    display: block;
+  }
 }/*# sourceMappingURL=NavBar.css.map */

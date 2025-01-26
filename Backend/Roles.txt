@@ -1,0 +1,18 @@
+
+# STAFF ROLES
+
+"General Manager", "Assistant General Manager", "Operations Manager", "Finance Manager", "Human Resource Manager", "Sales and Marketing Manager",
+"Front Desk Manager", "Receptionist", "Concierge", "Bellboy", "Night Auditor",
+"Housekeeping Manager", "Room Attendant", "Public Area Attendant", "Laundry Staff", "Maintainance Manager", "Engineer",
+"Food and Beverage Manager", "Restaurant Manager", "Bartender", "Barista", "Sommelier", "Head Chef", "Sous Chef", "Pastry Chef", "Line Cook", "Dishwasher", "Banquet Manager",
+"Spa Manager", "Massage Therapist", "Esthetician", "Fitness Trainer",
+"Security Manager", "Security Guard", "Fire Safety Officer",
+"Event Manager", "Banquet Server", "Setup Crew",
+"IT Manager", "IT Support Technician",
+"Gift Shop Manager", "Retail Sales Associate", "Kid's Club Attendant",
+"Valet Attendant", "Chauffeur", "Florist"
+
+
+# ROOM TYPES 
+"Single", "Double", "Family", "Suite", "Deluxe"
+

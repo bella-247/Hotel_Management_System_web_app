@@ -16,3 +16,4 @@
 # ROOM TYPES 
 "Single", "Double", "Family", "Suite", "Deluxe"
 
+# ROOMS PRICES
